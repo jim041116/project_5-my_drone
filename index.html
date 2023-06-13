@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空拍影像紀錄</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="./js/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const CarouselSlide = () => {
+            return(
+                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+                        <div className="carousel-inner">
+                            <div className="carousel-item active">
+                                <img src="./img/dji_fly_20230122_151600_399_1674388324401_photo_optimized.jpg" className="d-block w-100" alt="安平" />
+                                <div className="carousel-caption d-none d-md-block">
+                                    <h5>台南 安平</h5>
+                                    <h5>Tainan Anping</h5>
+                                </div>
+                            </div>
+                            <div className="carousel-item">
+                                <img src="./img/DJI_0330.jpg" className="d-block w-100" alt="清水斷崖" />
+                                <div className="carousel-caption d-none d-md-block">
+                                    <h5>花蓮 清水斷崖</h5>
+                                    <h5>Hualien Qingshui Cliff</h5>
+                                </div>
+                            </div>
+                            <div className="carousel-item">
+                                <img src="./img/dji_fly_20230124_105336_459_1674529148867_photo_optimized.jpg" className="d-block w-100" alt="曾文水庫" />
+                                <div className="carousel-caption d-none d-md-block">
+                                    <h5>台南 曾文水庫</h5>
+                                    <h5>Tainan Zengwen Reservoir</h5>
+                                </div>
+                            </div>
+                            <div className="carousel-item">
+                                <img src="./img/dji_fly_20230317_060330_493_1679138348178_photo_optimized.jpg" className="d-block w-100" alt="奇萊南華" />
+                                <div className="carousel-caption d-none d-md-block">
+                                    <h5>南投 奇萊南峰</h5>
+                                    <h5>Nantou Chilai Mountain</h5>
+                                </div>
+                            </div>
+                            <div className="carousel-item">
+                                <img src="./img/dji_fly_20230403_055904_502_1681001841787_photo_optimized.jpg" className="d-block w-100" alt="象鼻岩" />
+                                <div className="carousel-caption d-none d-md-block">
+                                    <h5>新北 象鼻岩</h5>
+                                    <h5>New Taipei Elephant Trunk Rock</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            )
+        }
+
+        let App = () => {
+            const data = {
+                video_link: './img/compose_video_1681645380829.mp4',
+                bn_text: '我的空拍紀錄',
+                logo_img: './img/217303.jpg',
+                web_title: '空拍影像紀錄',
+                about_text: '在登山時常看到有人操控著空拍機拍攝，每次看到內心都覺得山頂壯麗的風景透過上帝視角來看一定很震撼，但因單價較高加上怕自己不太會操控導至"炸機"所以遲遲沒有入手，終於，在2022年初入手了第一台空拍機"DJI MINI2"開始了屬於我的空拍之旅，剛好自己也在學習撰寫前端網頁，趁這機會透過自己所學的程式來寫網頁跟大家分享上帝視角。'
+            };
+            const imageData = [
+                {
+                    img_url: './img/DJI_0150.jpg',
+                    title: '南投-合歡山',
+                    text: '當時去合歡山爬百岳及觀賞高山杜鵑時拍攝，當天爬了合歡北峰及合歡主峰兩座百岳',
+                    btn: 'Read More'
+                },
+                {
+                    img_url: './img/DJI_0219.jpg',
+                    title: '台東-池上',
+                    text: '池上著名的金城武樹，去的時候稻田剛好正在收割，所以沒能拍下整片黃金稻田的景象有點可惜',
+                    btn: 'Read More'
+                },
+                {
+                    img_url: './img/DJI_0273.jpg',
+                    title: '新北-瑞芳',
+                    text: '位於新北瑞芳的南子吝步道因步道距離不長加上有無敵海景，所以是個非常熱門的步道',
+                    btn: 'Read More'
+                }
+            ];
+            return (
+                <div>
+                    <video src={data.video_link} loop autoPlay muted></video>
+                    <h1>{data.bn_text}</h1>
+                    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+                        <div className="container-fluid">
+                            <div className="navbar-brand">
+                                <img src={data.logo_img} alt="" style={{
+                                    width: '50px',
+                                    marginRight: '1rem',
+                                    borderRadius: '50px'
+                                }} />
+                                {data.web_title}
+                            </div>
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li className="nav-item">
+                                        <a className="nav-link active" aria-current="page" href="./index.html">Home</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="#about">About Me</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="#Image_section">Image</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div id="about">
+                        <div>About Me</div>
+                        <p>{data.about_text}</p>
+                    </div>
+                    <CarouselSlide />
+                    <div id="Image_section">
+                        <div className="Image_title">Image</div>
+                        <div className="row g-0">
+                            {
+                                imageData.map((item, i) => {
+                                    return <div className="col col-md-4 col-12" key={i}>
+                                        <div className="card" style={{
+                                            width: '90%'
+                                        }}>
+                                            <img src={item.img_url} className="card-img-top" alt="#" />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{item.title}</h5>
+                                                <p className="card-text">{item.text}</p>
+                                                <a href="#" className="btn btn-primary">{item.btn}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                })
+                            }
+                        </div>
+                    </div>
+                    <footer>
+                        copyright © 廖珞軒版權所有
+                        <img src="./img/chevron-upwards-arrow.png" alt="#" id="go_top" style={{
+                            width: '40px'
+                        }} />
+                    </footer>
+                </div>
+            )
+        }
+
+        const el = document.getElementById('root');
+        const root = ReactDOM.createRoot(el);
+        root.render(<App />);
+
+        $(function () {
+            $('#go_top').click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 50);
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 200) {
+                    $('#go_top').fadeIn('false');
+                } else {
+                    $('#go_top').fadeOut('false');
+                }
+            });
+
+            $('.navbar-nav a').click(function () {
+                let btn = $(this).attr('href');
+                let pos = $(btn).offset();
+                $('html, body').animate({ scrollTop: pos.top }, 50);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

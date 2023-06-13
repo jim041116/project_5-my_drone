@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+
+@mixin pc() {
+    @media (max-width:992px) {
+        @content;
+    }
+}
+
+@mixin pad() {
+    @media (max-width:768px) {
+        @content;
+    }
+}
+
+@mixin phone() {
+    @media (max-width:576px) {
+        @content;
+    }
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+
+    font: {
+        family: 'Noto Sans TC', sans-serif;
+        weight: 300;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+video {
+    display: block;
+}
+
+div {
+    video {
+        width: 100%;
+        height: calc(100vh - 76px);
+        object-fit: cover;
+        position: relative;
+    }
+
+    h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        line-height: 100vh;
+
+        font: {
+            size: 5rem;
+            weight: bold;
+        }
+
+        color: white;
+
+        @include phone() {
+            font-size: 3rem;
+        }
+    }
+
+    #about {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+
+        background: {
+            image: url(../img/index_about.jpg);
+            position: center;
+            size: cover;
+            attachment: fixed;
+        }
+
+        div {
+            color: white;
+
+            font: {
+                size: 3rem;
+                weight: bold;
+            }
+
+            position: absolute;
+            top: 25%;
+            left: 15%;
+
+            @include phone() {
+                top: 10%;
+            }
+        }
+
+        p {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            line-height: 30px;
+            text-align: start;
+            letter-spacing: 3px;
+            color: white;
+            z-index: 0;
+
+            @include phone() {
+                top: 35%;
+                font-size: 14px;
+                width: 80%;
+            }
+
+            &::before {
+                content: '';
+                background-color: rgba(0, 0, 0, 0.6);
+                width: 105%;
+                height: 30vh;
+                position: absolute;
+                top: -10%;
+                left: -2.5%;
+                z-index: -1;
+                border-radius: 15px;
+
+                @include phone() {
+                    height: 80%;
+                }
+            }
+        }
+    }
+
+    #carouselExampleSlidesOnly {
+        .carousel-inner {
+            .carousel-item {
+                .carousel-caption {
+                    h5 {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #Image_section {
+        background-color: rgb(197, 206, 255);
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 3rem;
+
+        .Image_title {
+            color: #212529;
+
+            font: {
+                size: 3rem;
+                weight: bold;
+            }
+
+            margin:3rem 0 3rem 15%;
+        }
+
+        .col {
+            display: flex;
+            justify-content: center;
+
+            @include phone() {
+                margin-top: 1rem;
+            }
+
+            .card {
+                border-radius: 15px;
+                border: 0;
+
+                img {
+                    border-radius: 15px 15px 0 0;
+                }
+
+                .btn {
+                    background-image: linear-gradient(45deg, rgba(5, 118, 255, 1) 0%, rgba(36, 248, 255, 1) 100%);
+                    border: 0;
+                    overflow: hidden;
+                    position: relative;
+                    transition: all .5s;
+                    border-radius: 15px;
+                    z-index: 0;
+    
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        background-image: linear-gradient(45deg, rgba(255, 193, 7, 1) 0%, rgba(255, 87, 34, 1) 100%);
+                        top: 0px;
+                        left: 0px;
+                        border-radius: 15px;
+                        width: 0px;
+                        height: 40px;
+                        transition: all .5s;
+                        z-index: -1;
+                    }
+    
+                    &:hover::before {
+                        width: 110px;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        background-color: #212529;
+        color: white;
+        text-align: center;
+        padding: 1.5rem;
+
+        img {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 5rem;
+            display: none;
+            cursor: pointer;
+        }
+    }
+}
