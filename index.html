@@ -24,50 +24,6 @@
     <div id="root"></div>
     <script type="text/babel">
 
-        const CarouselSlide = () => {
-            return(
-                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
-                        <div className="carousel-inner">
-                            <div className="carousel-item active">
-                                <img src="./img/dji_fly_20230122_151600_399_1674388324401_photo_optimized.jpg" className="d-block w-100" alt="安平" />
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h5>台南 安平</h5>
-                                    <h5>Tainan Anping</h5>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <img src="./img/DJI_0330.jpg" className="d-block w-100" alt="清水斷崖" />
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h5>花蓮 清水斷崖</h5>
-                                    <h5>Hualien Qingshui Cliff</h5>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <img src="./img/dji_fly_20230124_105336_459_1674529148867_photo_optimized.jpg" className="d-block w-100" alt="曾文水庫" />
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h5>台南 曾文水庫</h5>
-                                    <h5>Tainan Zengwen Reservoir</h5>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <img src="./img/dji_fly_20230317_060330_493_1679138348178_photo_optimized.jpg" className="d-block w-100" alt="奇萊南華" />
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h5>南投 奇萊南峰</h5>
-                                    <h5>Nantou Chilai Mountain</h5>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <img src="./img/dji_fly_20230403_055904_502_1681001841787_photo_optimized.jpg" className="d-block w-100" alt="象鼻岩" />
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h5>新北 象鼻岩</h5>
-                                    <h5>New Taipei Elephant Trunk Rock</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            )
-        }
-
         let App = () => {
             const data = {
                 video_link: './img/compose_video_1681645380829.mp4',
@@ -81,21 +37,40 @@
                     img_url: './img/DJI_0150.jpg',
                     title: '南投-合歡山',
                     text: '當時去合歡山爬百岳及觀賞高山杜鵑時拍攝，當天爬了合歡北峰及合歡主峰兩座百岳',
-                    btn: 'Read More'
+                    btn: 'Read More',
+                    link:'./Image_Nantou.html'
                 },
                 {
                     img_url: './img/DJI_0219.jpg',
                     title: '台東-池上',
                     text: '池上著名的金城武樹，去的時候稻田剛好正在收割，所以沒能拍下整片黃金稻田的景象有點可惜',
-                    btn: 'Read More'
+                    btn: 'Read More',
+                    link:'Image_Taitung.html'
                 },
                 {
                     img_url: './img/DJI_0273.jpg',
                     title: '新北-瑞芳',
                     text: '位於新北瑞芳的南子吝步道因步道距離不長加上有無敵海景，所以是個非常熱門的步道',
-                    btn: 'Read More'
+                    btn: 'Read More',
+                    link:'Image_New_Taipei.html'
                 }
             ];
+
+            const containerImg = {
+                img_url_1:'./img/container_1.jpg',
+                text_1:'台南-德陽艦',
+                img_url_2:'./img/container_2.jpg',
+                text_2:'台南-曾文水庫',
+                img_url_3:'./img/container_3.jpg',
+                text_3:'花蓮-清水斷崖',
+                img_url_4:'./img/container_4.jpg',
+                text_4:'南投-奇萊南峰',
+                img_url_5:'./img/container_5.jpg',
+                text_5:'新北-象鼻岩',
+                img_url_6:'./img/container_6.jpg',
+                text_6:'台中-台中地標',
+            };
+
             return (
                 <div>
                     <video src={data.video_link} loop autoPlay muted></video>
@@ -134,7 +109,6 @@
                         <div>About Me</div>
                         <p>{data.about_text}</p>
                     </div>
-                    <CarouselSlide />
                     <div id="Image_section">
                         <div className="Image_title">Image</div>
                         <div className="row g-0">
@@ -148,21 +122,64 @@
                                             <div className="card-body">
                                                 <h5 className="card-title">{item.title}</h5>
                                                 <p className="card-text">{item.text}</p>
-                                                <a href="#" className="btn btn-primary">{item.btn}</a>
+                                                <a href={item.link} className="btn btn-primary">{item.btn}</a>
                                             </div>
                                         </div>
                                     </div>
                                 })
                             }
                         </div>
+                        < div id="container">
+                            <div className="bn1">
+                                <div className='item'>
+                                    <div className="item_box">
+                                        <img src={containerImg.img_url_1} alt="" />
+                                        <div className="text"><h3>{containerImg.text_1}</h3></div>
+                                    </div>
+                                </div>
+                                <div className='item'>
+                                    <div className="item_box">
+                                        <img src={containerImg.img_url_2} alt="" />
+                                        <div className="text"><h3>{containerImg.text_2}</h3></div>
+                                    </div>
+                                    <div className="item_box">
+                                        <img src={containerImg.img_url_3} alt="" />
+                                        <div className="text"><h3>{containerImg.text_3}</h3></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bn2">
+                                <div className='item'>
+                                    <div className="item_box">
+                                        <img src={containerImg.img_url_4} alt="" />
+                                        <div className="text"><h3>{containerImg.text_4}</h3></div>
+                                    </div>
+                                    <div className="item_box">
+                                        <img src={containerImg.img_url_5} alt="" />
+                                        <div className="text"><h3>{containerImg.text_5}</h3></div>
+                                    </div>
+                                </div>
+                                <div className='item'>
+                                    <div className="item_box">
+                                        <img src={containerImg.img_url_6} alt="" />
+                                        <div className="text"><h3>{containerImg.text_6}</h3></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <footer>
                         copyright © 廖珞軒版權所有
-                        <img src="./img/chevron-upwards-arrow.png" alt="#" id="go_top" style={{
-                            width: '40px'
-                        }} />
+                        <div id="go_top">
+                            <img src="./img/arrowhead-up.png" alt="" style={{
+                                width: '60px'
+                            }} />
+                            <img src="./img/001.png" alt="" style={{
+                                width: '150px'
+                            }} />
+                        </div>
                     </footer>
-                </div>
+                </div >
             )
         }
 
@@ -171,14 +188,14 @@
         root.render(<App />);
 
         $(function () {
-            $('#go_top').click(function () {
+            $('#go_top img').click(function () {
                 $('html,body').animate({ scrollTop: 0 }, 50);
             });
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 200) {
-                    $('#go_top').fadeIn('false');
+                    $('#go_top img').fadeIn('false');
                 } else {
-                    $('#go_top').fadeOut('false');
+                    $('#go_top img').fadeOut('false');
                 }
             });
 
@@ -187,7 +204,14 @@
                 let pos = $(btn).offset();
                 $('html, body').animate({ scrollTop: pos.top }, 50);
             });
+
+            $('#container').imagesLoaded(function () {
+                $('#container').masonry({
+                    isFitWidth: true //左右平均留白
+                });
+            });
         });
+
     </script>
 
 </body>

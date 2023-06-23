@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新北-南子吝</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/Images.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <img class="nav_img" src='./img/217303.jpg' alt="" />
+                空拍影像紀錄
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="banner New_Taipei">
+        <div class="container">
+            <div class="banner-text">
+                <h1>新北-南子吝</h1>
+                <h2>南子吝步道 ． 濱海 ． 台2線</h2>
+            </div>
+        </div>
+    </section>
+    <div id="masonry">
+        <div class="box">
+            <img src="./img/New_Taipei/New_Taipei_1.JPG" height="400px" alt="">
+        </div>
+        <div class="box">
+            <img src="./img/New_Taipei/New_Taipei_2.JPG" height="500px" alt="">
+        </div>
+        <div class="box">
+            <img src="./img/New_Taipei/New_Taipei_3.JPG" height="400px" alt="">
+        </div>
+        <div class="box">
+            <img src="./img/New_Taipei/New_Taipei_4.JPG" height="500px" alt="">
+        </div>
+        <div class="box">
+            <img src="./img/New_Taipei/New_Taipei_5.JPG" height="400px" alt="">
+        </div>
+        <div class="box">
+            <img src="./img/New_Taipei/New_Taipei_6.JPG" height="500px" alt="">
+        </div>
+        <div class="box">
+            <img src="./img/New_Taipei/New_Taipei_7.JPG" height="400px" alt="">
+        </div>
+        <div class="box">
+            <img src="./img/New_Taipei/New_Taipei_8.JPG" height="500px" alt="">
+        </div>
+    </div>
+    <!-- 360度 -->
+    <div id="photo_360">
+        <iframe width="80%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" src="https://kuula.co/share/50lr4?logo=0&info=1&fs=1&vr=0&sd=1&thumbs=1"></iframe>
+    </div>
+    <div id="video">
+        <iframe src="https://www.veed.io/embed/381c59f7-b6b6-42a4-8895-4007f4726001" width="80%" height="600" frameborder="0" title="DJI_0280" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="https://www.veed.io/embed/98da1011-c6d4-4205-bdbc-fa3f92d8ab3e" width="80%" height="600" frameborder="0" title="DJI_0278" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+    <div id="go_home">
+        <a class="btn" href="./index.html">Home</a>
+    </div>
+    <footer>
+        copyright © 廖珞軒版權所有
+        <div id="go_top">
+            <img src="./img/arrowhead-up.png" alt="" />
+            <img src="./img/001.png" alt="" />
+        </div>
+    </footer>
+
+    <script src="./js/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="./js/imagesloaded.pkgd.min.js"></script>
+    <script src="./js/masonry.pkgd.min.js"></script>
+    <script>
+        $(document).ready(() => {
+
+            $('#go_top img').click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 50);
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 200) {
+                    $('#go_top img').fadeIn('false');
+                } else {
+                    $('#go_top img').fadeOut('false');
+                }
+            });
+
+            // 瀑布流
+            $('#masonry').imagesLoaded(function () {
+                $('#masonry').masonry({
+                    isFitWidth: true //左右平均留白
+                });
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
